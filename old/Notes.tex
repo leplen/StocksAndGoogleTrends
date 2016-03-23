@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[at]{easylist}
+\headsep=15pt
+
+\usepackage{datetime}
+\mdyydate
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\rhead{\today: \currenttime}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{20pt}
+\setlength{\headsep}{0.3in}
+
+\begin{document}
+\begin{center}{\huge\bf GTrends and the Market: Rough Notes}\end{center}
+
+I'm particularly interested in extreme events in Google trends data. It
+seems very possible that the only fairly pronounced spikes are really
+going to clear the noise threshold.
+
+Right now I'm only matching stock tickers with searches for the stock ticker.
+Probably implementing company names would be at least as interesting.
+
+Many stock tickers are also common words in various languages. I haven't restricted 
+the google trends data to just the U.S., although I probably should since I'm using
+U.S. stock tickers. I could eliminate companies like Allete Inc., a midwest energy company
+with stock symbol ALE, since most searches for ale probably have nothing to do with the company,
+but I'm leaving it in for now as a sanity check on my filters. 
+
+Google limits you to a couple hundred google trends reports at a time the way I currently
+have this implemented. That's not a huge problem at the moment, but it's definitely a
+limitation to be aware of.
+
+I'm not sure how quandl WIKI data handles stock splits. I may need to look 
+out for that.
+
+This is still really exploratory. I'm throwing out models
+
+I may try and integrate/use some of the stuff that is part of the pytrends module.
+\url{https://github.com/GeneralMills/pytrends}
+It has some nice features, but I'm am a little uncomfortable with code, especially
+code I didn't write, that includes my gmail username/password in plaintext. 
+At the moment, I'm more comfortable just leaving the browser logged in.
+The pyTrends module also results in google notifying me of each individual "log-in"
+from unrecognized machines, which is sort of annoying.
+
+Should read search popularity into a dictionary with the date as the key, search popularity as the value
+The pandas data frame that contains the Quandl data has these date keys in the first column, and doing this allows
+us to add the correct values for search frequency to the data frame 
+
+
+\begin{easylist}
+@ Potential variables
+@@ Largest week on week change in trend interest
+@@ Time series cross correlation
+\end{easylist}
+
+\end{document}
